@@ -7,7 +7,7 @@
     <item
         android:id="@+id/opciones"
         android:icon="@drawable/options"
-        android:title="submenu" >
+        android:title="submenu">
         <menu>
             <item
                 android:id="@+id/autor"

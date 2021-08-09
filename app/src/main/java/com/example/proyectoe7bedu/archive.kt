@@ -8,6 +8,12 @@ data class Archive (
     var icon: String="",
     var checkedDisabled: Boolean = true,
     var checked:Boolean = false,
-    var fav:Boolean = false
+    var fav:Boolean = false,
+    var autor:String="Desconocido",
+    var size:Float=0f,
+    var paginas:Int=0,
+    var resena:String="",
+    var paginaActual:Int =0,
+    var estatus:String="Pendiente"
 
 )

@@ -78,10 +78,8 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
         intento1.putExtra(
             "titulo",
             data[position].pathname
-        )//cambiar el titulo del libro por una variable string que contenga el nombre del asset
+        )
         startActivity(intento1)
-        //  if (actionMode == null) actionMode = startSupportActionMode(ActionModeCallBack())
-
     }
 
     inner class ActionModeCallBack() : ActionMode.Callback {
@@ -128,7 +126,28 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
 
                 //FAV ACTION MENU
                 R.id.actionMenuFavorite -> {
-                    mode?.title = "Fav"
+                    mode?.title = ""
+                    var elementIndex = mutableListOf<Int>()
+                    if (data.any { it.checked }) {
+                        data.forEach {
+                            if (it.checked) {
+                                elementIndex.add(data.indexOf(it))
+                            }
+                        }
+                        elementIndex.sortDescending()
+                        elementIndex.forEach {
+                            var i = it
+                            data[i].fav = true
+
+                        }
+                        dataHandler.hideCheckbox()
+                        dataChanged = true
+
+                    }
+                    adapter.notifyDataSetChanged()
+                    //Toast.makeText(parent,"Se agregaron a favoritos",Toast.LENGTH_SHORT).show()
+                    actionMode?.finish()
+
                     return true
                 }
                 else -> {
