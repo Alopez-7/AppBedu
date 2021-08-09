@@ -24,7 +24,7 @@ class viewDoc : AppCompatActivity() {
         var titulo = intent.extras!!.getString("titulo")
         pdf_view = findViewById(R.id.pdf_view)
 
-        pdf_view.fromAsset(titulo)
+        pdf_view.fromAsset("book/${titulo}")
             .password(null)
             .defaultPage(0)
             .enableSwipe(true)

@@ -7,21 +7,25 @@
     tools:context=".MainActivity">
 
 
-    <ListView
-        android:id="@+id/bookList"
-        android:layout_width="416dp"
-        android:layout_height="605dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="664dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/MHButton"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/layout_archive_list_item" />
 
     <Button
         android:id="@+id/MHButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="664dp"
         android:text="Menu"
-        app:layout_constraintBottom_toTopOf="@+id/bookList"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,23 +33,9 @@
         android:id="@+id/switchToggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="664dp"
         android:text="Ordenar"
-        app:layout_constraintBottom_toTopOf="@+id/bookList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.562"
-        app:layout_constraintStart_toEndOf="@+id/botonLector"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.787" />
-
-    <Button
-        android:id="@+id/botonLector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lector"
-        app:layout_constraintBottom_toTopOf="@+id/bookList"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.182"
-        app:layout_constraintStart_toEndOf="@+id/MHButton"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
