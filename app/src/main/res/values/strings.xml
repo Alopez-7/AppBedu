@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ProyectoE7Bedu</string>
+    <!--anthony-->
+    <string name="txt_estatus">Estatus</string>
+    <string name="txt_serie">Serie</string>
+    <string name="txt_favorito">Favorito</string>
+    <string name="txt_coleccion">Colección</string>
+    <string name="txt_autor">Autor</string>
+    <string name="txt_formato">Formato</string>
+
+</resources>
