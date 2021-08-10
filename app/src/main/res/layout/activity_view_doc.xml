@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".viewDoc">
 
-
     <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdf_view"
         android:layout_width="0dp"
