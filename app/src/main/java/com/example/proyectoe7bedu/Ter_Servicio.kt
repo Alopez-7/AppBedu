@@ -1,3 +1,4 @@
+//angeles ->parte de bienvenida
 package com.example.proyectoe7bedu
 
 import android.annotation.SuppressLint

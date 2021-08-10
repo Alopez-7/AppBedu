@@ -1,3 +1,4 @@
+//anthony y ketzalli (solo detalles)
 package com.example.proyectoe7bedu
 
 import android.content.Intent

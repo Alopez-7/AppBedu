@@ -1,3 +1,4 @@
+//alejandro ->parte de biblioteca
 package com.example.proyectoe7bedu
 
 import android.view.LayoutInflater
@@ -8,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isGone
 import androidx.recyclerview.widget.RecyclerView
-
 
 class RecyclerAdapter(
     val archives: List<Archive>, val listener:OnItemClickListener,

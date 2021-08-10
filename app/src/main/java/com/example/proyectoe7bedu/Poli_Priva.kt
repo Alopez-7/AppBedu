@@ -1,3 +1,4 @@
+//angeles ->parte de bienvenida
 package com.example.proyectoe7bedu
 
 import androidx.appcompat.app.AppCompatActivity

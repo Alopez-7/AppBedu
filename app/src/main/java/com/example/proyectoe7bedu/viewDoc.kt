@@ -34,38 +34,40 @@ class viewDoc : AppCompatActivity() {
 
         //definicion del funcionamiento del lector (https://github.com/barteksc/AndroidPdfViewer.git)
         pdf_view.fromAsset("book/${titulo}")
-            //.password(null)
-            //.defaultPage(0)
-            //.enableSwipe(true)
-            //.swipeHorizontal(false)
-            //.enableDoubletap(true)
-            //.onDraw { canvas, pageWidth, pageHeight, displayPage ->
+                //.password(null)
+                //.defaultPage(0)
+                //.enableSwipe(true)
+                //.swipeHorizontal(false)
+                //.enableDoubletap(true)
+                //.onDraw { canvas, pageWidth, pageHeight, displayPage ->
 
                 //codigo aquiiii
-           // }
-           // .onDrawAll { canvas, pageWidth, pageHeight, displayedPage ->
+                // }
+                // .onDrawAll { canvas, pageWidth, pageHeight, displayedPage ->
                 //y aquiiiii
-           // }
-           // .onPageChange { page, pageCount ->
+                // }
+                // .onPageChange { page, pageCount ->
                 //tambien aquiiii <3
-          //  }
+                //  }
+                .onPageScroll { page, positionOffset -> //lista en consola la pagina actual
+                    println("@@ did scroll to page $page")
+                }
+                .onPageError { page, t ->
+                    Toast.makeText(this@viewDoc, "Error al abrir" + page, Toast.LENGTH_SHORT).show()
+                    Log.d("ERROR", "" + t.localizedMessage);
+                }
+                // .onTap { false }
+                // .onRender { nbPages, pageWidth, pageHeight ->
+                //     pdf_view.fitToWidth()//ajusta el tama;o de pantalla
+                // }
+                // .enableAnnotationRendering(true)
+                // .invalidPageColor(Color.RED)
+                .load()
 
-            .onPageError { page, t ->
-                Toast.makeText(this@viewDoc, "Error al abrir" + page, Toast.LENGTH_SHORT).show()
-                Log.d("ERROR", "" + t.localizedMessage);
-            }
-           // .onTap { false }
-           // .onRender { nbPages, pageWidth, pageHeight ->
-           //     pdf_view.fitToWidth()//ajusta el tama;o de pantalla
-           // }
-           // .enableAnnotationRendering(true)
-           // .invalidPageColor(Color.RED)
-            .load()
 
-
-        pdf_view.setOnClickListener(){
+        pdf_view.setOnClickListener() {
             if (actionMode == null) actionMode =
-                startSupportActionMode(ActionModeCallback())
+                    startSupportActionMode(ActionModeCallback())
             true
         }
 
