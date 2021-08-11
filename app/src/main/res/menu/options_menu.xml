@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/favorito"
+        android:title="agregar a favorito" />
+    <item
+        android:id="@+id/autor"
+        android:title="editar autor"/>
+    <item
+        android:id="@+id/coleccion"
+        android:title="editar coleccion" />
+    <item
+        android:id="@+id/estatus"
+        android:title="editar estatus" />
+    <item
+        android:id="@+id/serie"
+        android:title="editar serie" />
+
+
+</menu>

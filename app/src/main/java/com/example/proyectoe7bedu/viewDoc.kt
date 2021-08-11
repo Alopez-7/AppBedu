@@ -8,22 +8,24 @@ serie, el estatus se cambia automaticamente
 
 package com.example.proyectoe7bedu
 
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
+import android.view.*
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.view.ActionMode
 import com.github.barteksc.pdfviewer.PDFView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-private var actionMode: ActionMode? = null
+var dialog = CustomDialogFragment()
+var ultimaPag: Int = 0
 
 class viewDoc : AppCompatActivity() {
 
     lateinit var pdf_view: PDFView
+    lateinit var pA:TextView
+    lateinit var pT:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,89 +33,68 @@ class viewDoc : AppCompatActivity() {
 
         var titulo = intent.extras!!.getString("titulo")
         pdf_view = findViewById(R.id.pdf_view)
+        pA=findViewById(R.id.pagAct)
+        pT=findViewById(R.id.pagTot)
 
         //definicion del funcionamiento del lector (https://github.com/barteksc/AndroidPdfViewer.git)
         pdf_view.fromAsset("book/${titulo}")
-                //.password(null)
-                //.defaultPage(0)
-                //.enableSwipe(true)
-                //.swipeHorizontal(false)
-                //.enableDoubletap(true)
-                //.onDraw { canvas, pageWidth, pageHeight, displayPage ->
-
-                //codigo aquiiii
-                // }
-                // .onDrawAll { canvas, pageWidth, pageHeight, displayedPage ->
-                //y aquiiiii
-                // }
-                // .onPageChange { page, pageCount ->
-                //tambien aquiiii <3
-                //  }
-                .onPageScroll { page, positionOffset -> //lista en consola la pagina actual
-                    println("@@ did scroll to page $page")
-                }
-                .onPageError { page, t ->
-                    Toast.makeText(this@viewDoc, "Error al abrir" + page, Toast.LENGTH_SHORT).show()
-                    Log.d("ERROR", "" + t.localizedMessage);
-                }
-                // .onTap { false }
-                // .onRender { nbPages, pageWidth, pageHeight ->
-                //     pdf_view.fitToWidth()//ajusta el tama;o de pantalla
-                // }
-                // .enableAnnotationRendering(true)
-                // .invalidPageColor(Color.RED)
-                .load()
-
-
-        pdf_view.setOnClickListener() {
-            if (actionMode == null) actionMode =
-                    startSupportActionMode(ActionModeCallback())
-            true
-        }
-
-    }
-
-
-    class ActionModeCallback : ActionMode.Callback {
-        override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
-            val inflater = mode?.getMenuInflater()
-            inflater?.inflate(R.menu.action_mode, menu)
-            mode?.setTitle("Options")
-            return true
-        }
-
-        override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean {
-            return true
-        }
-
-        override fun onDestroyActionMode(mode: ActionMode?) {
-            actionMode = null
-        }
-
-        override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
-            when (item?.getItemId()) {
-                R.id.favorito -> {
-                    //aqui accion
-                    return true
-                }
-                R.id.autor -> {
-                    //aqui accion
-                    return true
-                }
-                R.id.coleccion -> {
-                    //aqui accion
-                    return true
-                }
-                R.id.estatus -> {
-                    //aqui accion
-                    return true
-                }
-                R.id.serie -> {
-                    //aqui accion
-                    return true
-                }
+            .defaultPage(ultimaPag)//para poner la ultima pagina leida
+            .enableSwipe(true)
+            .swipeHorizontal(false)
+            .enableDoubletap(true)
+            .onPageChange { page, pageCount ->
+                pT.setText("$pageCount")
+              }
+            .onPageScroll { page, positionOffset -> //lista la pagina actual
+                pA.setText("$page")
+                ultimaPag = page //mandar esto al registro
             }
-            return false
-        }
+            .onPageError { page, t ->
+                Toast.makeText(this@viewDoc, "Error al abrir" + page, Toast.LENGTH_SHORT).show()
+                Log.d("ERROR", "" + t.localizedMessage);
+            }
+            .load()
     }
+
+//definicion del funcionamiento del menu
+//se cambio el action mode por que no permitia el uso del dialog fragment
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.options_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.favorito -> {
+                Toast.makeText(this, "agregar a favoritos", Toast.LENGTH_LONG).show()
+                dialog.show(supportFragmentManager, "CustomDialog")
+                return true
+            }
+            R.id.autor -> {
+                Toast.makeText(this, "cambiar autor", Toast.LENGTH_LONG).show()
+                dialog.show(supportFragmentManager, "CustomDialog")
+                return true
+            }
+            R.id.coleccion -> {
+                Toast.makeText(this, "cambiar coleccion", Toast.LENGTH_LONG).show()
+                dialog.show(supportFragmentManager, "CustomDialog")
+                return true
+            }
+            R.id.estatus -> {
+                Toast.makeText(this, "cambiar estatus", Toast.LENGTH_LONG).show()
+                dialog.show(supportFragmentManager, "CustomDialog")
+                return true
+            }
+            R.id.serie -> {
+                Toast.makeText(this, "cambiar serie", Toast.LENGTH_LONG).show()
+                dialog.show(supportFragmentManager, "CustomDialog")
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
+
