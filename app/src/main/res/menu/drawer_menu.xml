@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Opciones">
+
+        <menu>
+
+            <group>
+
+                <item
+                    android:id="@+id/nav_favorites"
+                    android:icon="@drawable/ic_favorites"
+                    android:title="@string/drawer.favorites"
+                    android:checkable="true"/>
+
+                <item
+                    android:id="@+id/nav_status"
+                    android:icon="@drawable/ic_status"
+                    android:title="@string/drawer.status"
+                    android:checkable="true"/>
+
+                <item
+                    android:id="@+id/nav_authors"
+                    android:icon="@drawable/ic_authors"
+                    android:title="@string/drawer.authors"
+                    android:checkable="true"/>
+
+                <item
+                    android:id="@+id/nav_series"
+                    android:icon="@drawable/ic_series"
+                    android:title="@string/drawer.series"
+                    android:checkable="true"/>
+
+                <item
+                    android:id="@+id/nav_collections"
+                    android:icon="@drawable/ic_collections"
+                    android:title="@string/drawer.collections"
+                    android:checkable="true"/>
+
+            </group>
+        </menu>
+    </item>
+
+</menu>

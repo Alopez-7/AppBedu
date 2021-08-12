@@ -9,13 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoE7Bedu">
-        <activity android:name=".lector1">
-            android:parentActivityName=".Biblioteca">
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Biblioteca" />
-        </activity>
         <activity android:name=".MenuHamburguesa" >
             android:parentActivityName=".Biblioteca">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -24,17 +17,22 @@
                 android:value=".Biblioteca" />
         </activity>
         <activity android:name=".Biblioteca" />
-        <activity android:name=".Poli_Priva" />
-        <activity android:name=".Bienvenida" />
-        <activity android:name=".Ter_Servicio" />
-        <activity android:name=".SerieActivity" >
-            android:parentActivityName=".MenuHamburguesa">
+        <activity android:name=".Poli_Priva"
+            android:parentActivityName=".Bienvenida">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MenuHamburguesa" />
+                android:value=".Bienvenida" />
         </activity>
-        <activity android:name=".FormatoActivity"  >
+        <activity android:name=".Bienvenida" />
+        <activity android:name=".Ter_Servicio"
+            android:parentActivityName=".Bienvenida">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Bienvenida" />
+        </activity>/>
+        <activity android:name=".SerieActivity" >
             android:parentActivityName=".MenuHamburguesa">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data

@@ -4,8 +4,7 @@ package com.example.proyectoe7bedu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import android.widget.*
 
 class MenuHamburguesa : AppCompatActivity() {
     lateinit var textView: TextView
@@ -15,44 +14,58 @@ class MenuHamburguesa : AppCompatActivity() {
     lateinit var buttonColeccion: Button
     lateinit var buttonAutor: Button
     lateinit var buttonFormato: Button
+    private lateinit var listView: ListView
 
+    val op = arrayOf(
+        "Favoritos",
+        "Estatus",
+        "Autores",
+        "Series",
+        "Colecciones"
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu_hamburguesa)
+        setContentView(R.layout.listview_mh)
 
-        textView = findViewById(R.id.textView)
-        buttonEstatus = findViewById(R.id.buttonEstatus)
-        buttonSerie = findViewById(R.id.buttonSerie)
-        buttonFavorito = findViewById(R.id.buttonFavorito)
-        buttonColeccion = findViewById(R.id.buttonColeccion)
-        buttonAutor = findViewById(R.id.buttonAutor)
-        buttonFormato = findViewById(R.id.buttonFormato)
+        listView = findViewById(R.id.listView)
 
-        buttonEstatus.setOnClickListener {
-            val intent = Intent(this, EstatusActivity::class.java)
-            startActivity(intent)
-        }
+        val itemsAdapter =
+            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, op)
 
-        buttonSerie.setOnClickListener {
-            val intent = Intent(this, SerieActivity::class.java)
-            startActivity(intent)
-        }
+        listView.adapter = itemsAdapter
 
-        buttonFavorito.setOnClickListener {
-            val intent = Intent(this, FavoritoActivity::class.java)
-            startActivity(intent)
-        }
+        listView.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, view, position, id ->
+                Toast.makeText(
+                    applicationContext,
+                    "Seleccionaste la opción ${op[position]}", Toast.LENGTH_SHORT
+                )
+                    .show()
+                when (id.toInt()) {
+                    0 -> {
+                        val intent = android.content.Intent(this, FavoritoActivity::class.java)
+                        startActivity(intent)
+                    }
+                    1 -> {
+                        val intent = android.content.Intent(this, EstatusActivity::class.java)
+                        startActivity(intent)
+                    }
+                    2 -> {
+                        val intent = android.content.Intent(this, AutorActivity::class.java)
+                        startActivity(intent)
+                    }
+                    3 -> {
+                        val intent = android.content.Intent(this, SerieActivity::class.java)
+                        startActivity(intent)
+                    }
+                    4 -> {
+                        val intent = android.content.Intent(this, ColeccionActivity::class.java)
+                        startActivity(intent)
+                    }
 
-        buttonColeccion.setOnClickListener {
-            val intent = Intent(this, ColeccionActivity::class.java)
-            startActivity(intent)
-        }
-
-        buttonAutor.setOnClickListener {
-            val intent = Intent(this, AutorActivity::class.java)
-            startActivity(intent)
-        }
+                }
+            }
 
     }
 }

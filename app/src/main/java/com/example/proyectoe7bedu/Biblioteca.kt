@@ -9,7 +9,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.view.ActionMode
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 var data = mutableListOf(
@@ -33,7 +36,9 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
         setContentView(R.layout.activity_biblioteca)
 
 
-        var menuH = findViewById<Button>(R.id.MHButton)
+        val menuH = findViewById<Button>(R.id.MHButton)
+
+
         var sortSwitch = findViewById<Switch>(R.id.switchToggle)
         recycler = findViewById<RecyclerView>(R.id.recycler)
 
@@ -52,18 +57,15 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
 
         dataHandler = RecyclerDataHandler(data)
         dataHandler.populateData(archiveNameList, archiveTypeList)
+
         menuH.setOnClickListener {
             val intento1 = Intent(this, MenuHamburguesa::class.java)
             startActivity(intento1)
         }
 
-
-
-
     }
 
     override fun onItemLongClick(position: Int) {
-
 
         if (actionMode == null) actionMode = startSupportActionMode(ActionModeCallBack())
         dataHandler.showCheckBox()
