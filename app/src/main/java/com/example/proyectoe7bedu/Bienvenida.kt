@@ -14,7 +14,7 @@ class Bienvenida : AppCompatActivity() {
 
         val boton1=findViewById<Button>(R.id.buttonAccept)
         boton1.setOnClickListener {
-            val intento1 = Intent(this, Biblioteca::class.java)
+            val intento1 = Intent(this, LogIn::class.java)
             startActivity(intento1)
         }
         val boton2=findViewById<Button>(R.id.poli_priv)

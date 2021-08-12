@@ -10,5 +10,9 @@
         android:id="@+id/actionMenuFavorite"
         android:icon="@drawable/ic_fav"
         android:title="Fav" />
+    <item
+        android:id="@+id/actionMenuSort"
+        android:icon="@drawable/ic_sort"
+        android:title="Sort"/>
 
 </menu>

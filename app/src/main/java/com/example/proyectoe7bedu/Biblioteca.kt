@@ -1,6 +1,6 @@
-//alejandro y andrea
 package com.example.proyectoe7bedu
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -9,18 +9,19 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.view.ActionMode
-import androidx.appcompat.widget.Toolbar
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.example.proyectoe7bedu.Archive
+import com.example.proyectoe7bedu.MenuHamburguesa
+import com.example.proyectoe7bedu.R
+import com.example.proyectoe7bedu.viewDoc
 import com.google.android.material.snackbar.Snackbar
-var data = mutableListOf(
-Archive("","","",""))
+
 var index= mutableListOf(0)
 lateinit var dataHandler: RecyclerDataHandler
 var dataChanged = false
-
+var blockedClick = false
+lateinit var localData:MutableList<Archive>
 
 class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,RecyclerAdapter.OnItemLongClickListener {
     lateinit var recycler: RecyclerView
@@ -30,59 +31,81 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
     private var actionMode: ActionMode? = null
     private var adapter = RecyclerAdapter(data, this, this)
 
+    @SuppressLint("RestrictedApi")
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_biblioteca)
+        supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
 
-
-        val menuH = findViewById<Button>(R.id.MHButton)
-
-
+        var menuH = findViewById<Button>(R.id.MHButton)
         var sortSwitch = findViewById<Switch>(R.id.switchToggle)
         recycler = findViewById<RecyclerView>(R.id.recycler)
 
         recycler.adapter = adapter
+        dataHandler = RecyclerDataHandler(data)
 
+        localData = mutableListOf(Archive())
 
+        recycler.apply {
 
-        var archiveNameList = mutableListOf<String>()
-        var archiveTypeList = mutableListOf<String>()
-
-        assets.list("book")?.forEach {
-            archiveNameList.add(it.substring(0, it.length - 4))
-            archiveTypeList.add(it.substring(it.length - 4, it.length))
+            val topSpacingDecorator = BibliotecaRecyclerDecoration(10)
+            addItemDecoration(topSpacingDecorator)
 
         }
 
-        dataHandler = RecyclerDataHandler(data)
-        dataHandler.populateData(archiveNameList, archiveTypeList)
 
         menuH.setOnClickListener {
-            val intento1 = Intent(this, MenuHamburguesa::class.java)
-            startActivity(intento1)
+            localData.clear()
+            localData.addAll(data)
+            var elementIndex = mutableListOf<Int>()
+            if (data.any { it.favorito }) {
+                data.forEach {
+                    if (!it.favorito) {
+                        elementIndex.add(data.indexOf(it))
+                    }
+                }
+                elementIndex.sortDescending()
+                elementIndex.forEach {
+                    var i = it
+                    data.removeAt(i)
+                    adapter.notifyItemRemoved(i)
+                }
+            }
         }
+        sortSwitch.setOnCheckedChangeListener { _, isChecked ->
+            data.clear()
+            data.addAll(localData)
+            adapter.notifyItemRangeChanged(0, data.size)
+
+        }
+
+
+
 
     }
 
     override fun onItemLongClick(position: Int) {
 
+
         if (actionMode == null) actionMode = startSupportActionMode(ActionModeCallBack())
         dataHandler.showCheckBox()
-        /*data.forEach {
-            it.checkedDisabled = false
-            it.checked=false}*/
-        adapter.notifyDataSetChanged()
+        adapter.notifyItemRangeChanged(0, data.size)
+
         true
     }
 
     override fun onItemClick(position: Int) {
-        var intento1 = Intent(this, viewDoc::class.java)
-        intento1.putExtra(
-            "titulo",
-            data[position].pathname
-        )
-        startActivity(intento1)
+        if(!blockedClick) {
+            var intento1 = Intent(this, viewDoc::class.java)
+
+            intento1.putExtra(
+                "titulo",
+                data[position].titulo
+            )
+            startActivity(intento1)
+        }
+
     }
 
     inner class ActionModeCallBack() : ActionMode.Callback {
@@ -90,6 +113,8 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
             val inflater = mode?.menuInflater
             inflater?.inflate(R.menu.action_mode_biblioteca, menu)
             mode?.title = ""
+            blockedClick = true
+
             return true
         }
 
@@ -102,7 +127,7 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
 
                 //DELETE ACTION MENU
                 R.id.actionMenuDelete -> {
-                    mode?.title = "Delete"
+
                     var elementIndex = mutableListOf<Int>()
 
                     if (data.any { it.checked }) {
@@ -129,7 +154,7 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
 
                 //FAV ACTION MENU
                 R.id.actionMenuFavorite -> {
-                    mode?.title = ""
+
                     var elementIndex = mutableListOf<Int>()
                     if (data.any { it.checked }) {
                         data.forEach {
@@ -140,7 +165,7 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
                         elementIndex.sortDescending()
                         elementIndex.forEach {
                             var i = it
-                            data[i].fav = true
+                            data[i].favorito = true
 
                         }
                         dataHandler.hideCheckbox()
@@ -148,11 +173,21 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
 
                     }
                     adapter.notifyDataSetChanged()
-                    //Toast.makeText(parent,"Se agregaron a favoritos",Toast.LENGTH_SHORT).show()
+                    blockedClick = false
                     actionMode?.finish()
 
                     return true
                 }
+                R.id.actionMenuSort -> {
+                    data.sortBy { it.titulo.toLowerCase() }
+                    dataChanged = true
+                    adapter.notifyDataSetChanged()
+                    blockedClick = false
+                    actionMode?.finish()
+
+                    return true
+                }
+
                 else -> {
 
                     return true
@@ -166,12 +201,13 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
                 dataHandler.hideCheckbox()
                 adapter.notifyItemRangeChanged(0, data.size)
                 dataChanged = false
+                blockedClick = false
             } else {
                 dataHandler.hideCheckbox()
                 adapter.notifyDataSetChanged()
+                blockedClick = false
             }
-
-
         }
     }
+
 }

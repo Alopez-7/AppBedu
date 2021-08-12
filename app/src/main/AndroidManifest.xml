@@ -9,65 +9,72 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoE7Bedu">
-        <activity android:name=".MenuHamburguesa" >
+        <activity android:name=".LogIn"></activity>
+        <activity android:name=".MenuHamburguesa">
             android:parentActivityName=".Biblioteca">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Biblioteca" />
         </activity>
-        <activity android:name=".Biblioteca" />
-        <activity android:name=".Poli_Priva"
+        <activity android:name=".Biblioteca">
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".LogIn" </activity>
+        <activity
+            android:name=".Poli_Priva"
             android:parentActivityName=".Bienvenida">
+
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Bienvenida" />
         </activity>
         <activity android:name=".Bienvenida" />
-        <activity android:name=".Ter_Servicio"
+        <activity
+            android:name=".Ter_Servicio"
             android:parentActivityName=".Bienvenida">
+
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Bienvenida" />
-        </activity>/>
-        <activity android:name=".SerieActivity" >
+        </activity>
+        <activity android:name=".SerieActivity">
             android:parentActivityName=".MenuHamburguesa">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MenuHamburguesa" />
         </activity>
-        <activity android:name=".FavoritoActivity"  >
+        <activity android:name=".FavoritoActivity">
             android:parentActivityName=".MenuHamburguesa">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MenuHamburguesa" />
         </activity>
-        <activity android:name=".EstatusActivity"  >
+        <activity android:name=".EstatusActivity">
             android:parentActivityName=".MenuHamburguesa">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MenuHamburguesa" />
         </activity>
-        <activity android:name=".ColeccionActivity"  >
+        <activity android:name=".ColeccionActivity">
             android:parentActivityName=".MenuHamburguesa">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MenuHamburguesa" />
         </activity>
-        <activity android:name=".AutorActivity"  >
+        <activity android:name=".AutorActivity">
             android:parentActivityName=".MenuHamburguesa">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MenuHamburguesa" />
         </activity>
-        <activity android:name=".viewDoc"  >
+        <activity android:name=".viewDoc">
             android:parentActivityName=".Biblioteca">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
