@@ -1,19 +1,12 @@
 //anthony y ketzalli (solo detalles)
 package com.example.proyectoe7bedu
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 
 class MenuHamburguesa : AppCompatActivity() {
     lateinit var textView: TextView
-    lateinit var buttonEstatus: Button
-    lateinit var buttonSerie: Button
-    lateinit var buttonFavorito: Button
-    lateinit var buttonColeccion: Button
-    lateinit var buttonAutor: Button
-    lateinit var buttonFormato: Button
     private lateinit var listView: ListView
 
     val op = arrayOf(
@@ -31,7 +24,7 @@ class MenuHamburguesa : AppCompatActivity() {
         listView = findViewById(R.id.listView)
 
         val itemsAdapter =
-            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, op)
+            ArrayAdapter(this, android.R.layout.simple_list_item_1, op)
 
         listView.adapter = itemsAdapter
 
