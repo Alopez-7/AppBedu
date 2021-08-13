@@ -31,25 +31,29 @@
         android:inputType="text"
         android:text="Ingreso" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/cancelButton"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
         app:layout_constraintTop_toBottomOf="@id/intext"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/acceptButton"
         android:layout_margin="30dp"
+        android:backgroundTint="@color/black"
         android:padding="10dp"
         android:text="Cancelar" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/acceptButton"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
         app:layout_constraintTop_toBottomOf="@id/intext"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/cancelButton"
         android:layout_margin="30dp"
+        android:backgroundTint="@color/black"
         android:padding="10dp"
         android:text="Aceptar" />
 

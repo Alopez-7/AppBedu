@@ -18,6 +18,8 @@ Los integrantes han sido conformados por:
 
 # Funcionamiento
 
+Nota importante: en el login es necesario ingresar un correo dentro del username
+
  - Biblioteca *(Se encarga de listar los archivos PDF, puede eliminarlos, colocarlos como favoritos, organizarlos y mandarlos al lector para ser leidos)*
  -- RecyclerAdapter 
  -- RecyclerDataHandler 

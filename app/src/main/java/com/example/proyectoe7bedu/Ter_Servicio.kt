@@ -12,10 +12,6 @@ class Ter_Servicio : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ter_servicio)
 
-        val botonsalir1 = findViewById<Button>(R.id.B_Salir2)
-        botonsalir1.setOnClickListener {
-            finish()
-        }
     }
 
 

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--angeles (ketzalli solo alineo y cambio el texto)-->
+<?xml version="1.0" encoding="utf-8"?><!--angeles (ketzalli solo alineo y cambio el texto)-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -41,34 +40,54 @@
         app:layout_constraintTop_toTopOf="@+id/background1"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="388dp"
-        android:layout_height="291dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt, diam nec pulvinar semper, lectus arcu rutrum massa, quis pulvinar risus eros ultrices metus. Maecenas id posuere ante. Quisque eget finibus orci. Pellentesque ut neque felis. Aenean semper velit at neque congue, vel iaculis elit ornare. Vestibulum eget libero molestie, aliquet tortor vel, ultrices libero. Donec sed aliquet ipsum. Nunc vitae placerat felis. Curabitur finibus lacus velit, ac pharetra mauris laoreet id. Duis iaculis sodales urna vel pretium. Aliquam erat volutpat. Integer efficitur tincidunt odio ac euismod. Ut at leo bibendum, maximus est sed, ullamcorper erat. Etiam nisl odio, convallis id egestas nec, ornare id enim. "
-        android:textSize="18sp"
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="386dp"
+        android:layout_height="500dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/topbar2"
+        tools:ignore="MissingConstraints">
 
-    <Button
-        android:id="@+id/B_Salir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scrollbarTrackHorizontal="@android:drawable/btn_star_big_on"
-        android:text="Salir"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#FAF8F8"
-        android:textColorHint="#F7FFFAFA"
-        android:textColorLink="#FBF9F9"
-        app:layout_constraintBottom_toBottomOf="@+id/background1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:srcCompat="?attr/actionModeCloseDrawable"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/textView6"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="POLÍTICA DE PRIVACIDAD \n\nEl presente Política de Privacidad establece los términos en que usa y protege la información que es proporcionada por sus usuarios al momento de utilizar su sitio web. Esta compañía está comprometida con la seguridad de los datos de sus usuarios. Cuando le pedimos llenar los campos de información personal con la cual usted pueda ser identificado, lo hacemos asegurando que sólo se empleará de acuerdo con los términos de este documento. Sin embargo esta Política de Privacidad puede cambiar con el tiempo o ser actualizada por lo que le recomendamos y enfatizamos revisar continuamente esta página para asegurarse que está de acuerdo con dichos cambios.
+
+Información que es recogida
+
+Nuestro sitio web podrá recoger información personal por ejemplo: Nombre,  información de contacto como  su dirección de correo electrónica e información demográfica. Así mismo cuando sea necesario podrá ser requerida información específica para procesar algún pedido o realizar una entrega o facturación.
+
+Uso de la información recogida
+
+Nuestro sitio web emplea la información con el fin de proporcionar el mejor servicio posible, particularmente para mantener un registro de usuarios, de pedidos en caso que aplique, y mejorar nuestros productos y servicios.  Es posible que sean enviados correos electrónicos periódicamente a través de nuestro sitio con ofertas especiales, nuevos productos y otra información publicitaria que consideremos relevante para usted o que pueda brindarle algún beneficio, estos correos electrónicos serán enviados a la dirección que usted proporcione y podrán ser cancelados en cualquier momento.
+
+está altamente comprometido para cumplir con el compromiso de mantener su información segura. Usamos los sistemas más avanzados y los actualizamos constantemente para asegurarnos que no exista ningún acceso no autorizado.
+
+Cookies
+
+Una cookie se refiere a un fichero que es enviado con la finalidad de solicitar permiso para almacenarse en su ordenador, al aceptar dicho fichero se crea y la cookie sirve entonces para tener información respecto al tráfico web, y también facilita las futuras recurrente. Otra función que tienen las cookies es que con ellas las web pueden reconocerte individualmente y por tanto brindarte el mejor servicio personalizado de su web.
+
+Nuestro sitio web emplea las cookies para poder identificar las páginas que son visitadas y su frecuencia. Esta información es empleada únicamente para análisis estadístico y después la información se elimina de forma permanente. Usted puede eliminar las cookies en cualquier momento desde su ordenador. Sin embargo las cookies ayudan a proporcionar un mejor servicio de los sitios web, estás no dan acceso a información de su ordenador ni de usted, a menos de que usted así lo quiera y la proporcione directamente. Usted puede aceptar o negar el uso de cookies, sin embargo la mayoría de navegadores aceptan cookies automáticamente pues sirve para tener un mejor servicio web. También usted puede cambiar la configuración de su ordenador para declinar las cookies. Si se declinan es posible que no pueda utilizar algunos de nuestros servicios.
+
+Enlaces a Terceros
+
+Este sitio web pudiera contener en laces a otros sitios que pudieran ser de su interés. Una vez que usted de clic en estos enlaces y abandone nuestra página, ya no tenemos control sobre al sitio al que es redirigido y por lo tanto no somos responsables de los términos o privacidad ni de la protección de sus datos en esos otros sitios terceros. Dichos sitios están sujetos a sus propias políticas de privacidad por lo cual es recomendable que los consulte para confirmar que usted está de acuerdo con estas.
+
+Control de su información personal
+
+En cualquier momento usted puede restringir la recopilación o el uso de la información personal que es proporcionada a nuestro sitio web.  Cada vez que se le solicite rellenar un formulario, como el de alta de usuario, puede marcar o desmarcar la opción de recibir información por correo electrónico.  En caso de que haya marcado la opción de recibir nuestro boletín o publicidad usted puede cancelarla en cualquier momento."
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/scroll"
+            app:layout_constraintEnd_toEndOf="@+id/scroll"
+            app:layout_constraintStart_toStartOf="@+id/scroll"
+            app:layout_constraintTop_toTopOf="@+id/scroll"
+            tools:ignore="MissingConstraints" />
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

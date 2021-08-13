@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_autor.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_biblioteca.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_bienvenida.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_coleccion.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_estatus.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_favorito.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_log_in.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_main.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_menu_hamburguesa.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_mh.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_poli_priva.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_serie.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_ter_servicio.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/activity_view_doc.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/drawer_header.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/fragment_custom_dialog1.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/layout_archive_list_item.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Dell/OneDrive/Documentos/GitHub/AppBedu/app/src/main/res/layout/listview_mh.xml" value="0.23981481481481481" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

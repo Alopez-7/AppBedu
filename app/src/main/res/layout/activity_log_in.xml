@@ -64,25 +64,27 @@
 
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/loginbtn"
         android:layout_below="@id/password"
-        android:text="LOGIN"
-        android:backgroundTint="@color/black"
         android:layout_centerHorizontal="true"
-        android:layout_margin="60dp"
-        />
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="@color/black"
+        android:text="LOGIN" />
 
     <TextView
         android:id="@+id/forgotpass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/loginbtn"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
         android:text="Forgot password?"
-        android:layout_centerHorizontal="true"
         android:textColor="@color/black" />
 
     <TextView
