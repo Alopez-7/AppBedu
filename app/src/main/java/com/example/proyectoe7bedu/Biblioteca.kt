@@ -37,9 +37,6 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_biblioteca)
         supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
-
-        var menuH = findViewById<Button>(R.id.MHButton)
-        var sortSwitch = findViewById<Switch>(R.id.switchToggle)
         recycler = findViewById<RecyclerView>(R.id.recycler)
 
         recycler.adapter = adapter
@@ -55,30 +52,6 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
         }
 
 
-        menuH.setOnClickListener {
-            localData.clear()
-            localData.addAll(data)
-            var elementIndex = mutableListOf<Int>()
-            if (data.any { it.favorito }) {
-                data.forEach {
-                    if (!it.favorito) {
-                        elementIndex.add(data.indexOf(it))
-                    }
-                }
-                elementIndex.sortDescending()
-                elementIndex.forEach {
-                    var i = it
-                    data.removeAt(i)
-                    adapter.notifyItemRemoved(i)
-                }
-            }
-        }
-        sortSwitch.setOnCheckedChangeListener { _, isChecked ->
-            data.clear()
-            data.addAll(localData)
-            adapter.notifyItemRangeChanged(0, data.size)
-
-        }
 
 
 
@@ -211,3 +184,28 @@ class Biblioteca : AppCompatActivity(),RecyclerAdapter.OnItemClickListener,Recyc
     }
 
 }
+//Falto completar por Angeles
+/* menuH.setOnClickListener {
+     localData.clear()
+     localData.addAll(data)
+     var elementIndex = mutableListOf<Int>()
+     if (data.any { it.favorito }) {
+         data.forEach {
+             if (!it.favorito) {
+                 elementIndex.add(data.indexOf(it))
+             }
+         }
+         elementIndex.sortDescending()
+         elementIndex.forEach {
+             var i = it
+             data.removeAt(i)
+             adapter.notifyItemRemoved(i)
+         }
+     }
+ }
+ sortSwitch.setOnCheckedChangeListener { _, isChecked ->
+     data.clear()
+     data.addAll(localData)
+     adapter.notifyItemRangeChanged(0, data.size)
+
+ }*/

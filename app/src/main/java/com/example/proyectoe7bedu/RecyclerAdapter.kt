@@ -1,5 +1,5 @@
 package com.example.proyectoe7bedu
-
+//Alejandro
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,6 +52,8 @@ class RecyclerAdapter(
         val img: ImageView = view.findViewById(R.id.ItemImage)
         val fav: ImageView = view.findViewById(R.id.itemFav)
         val autor = view.findViewById<TextView>(R.id.itemAuthor)
+        val estatus = view.findViewById<TextView>(R.id.itemEstatus)
+        val paginaActual = view.findViewById<TextView>(R.id.itemActualPage)
 
 
         fun bind(archive: Archive) {
@@ -61,6 +63,8 @@ class RecyclerAdapter(
             checkbox.isChecked = archive.checked
             fav.isVisible = archive.favorito
             autor.text = archive.autor
+            estatus.text = "Estatus: ${archive.estatus}"
+            paginaActual.text = "Pagina actual: ${archive.actualPage}"
 
 
 

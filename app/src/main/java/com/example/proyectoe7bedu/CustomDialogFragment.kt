@@ -26,7 +26,16 @@ class CustomDialogFragment: DialogFragment() {
         }
 
         acceptButton.setOnClickListener{
+
             Toast.makeText(context,"valor cambiado a: ${ingreso.getText().toString()}",Toast.LENGTH_LONG).show()
+            when (fragmentSelected){
+                1-> data[indexArchivo].autor = ingreso.getText().toString()
+                2->data[indexArchivo].coleccion = ingreso.getText().toString()
+                3->data[indexArchivo].estatus = ingreso.getText().toString()
+                4->data[indexArchivo].serie = ingreso.getText().toString()
+
+            }
+
             dismiss()
         }
 

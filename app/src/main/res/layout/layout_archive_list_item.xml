@@ -11,7 +11,7 @@
     >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="200dp"
         android:padding="8dp">
 
 
@@ -27,7 +27,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toTopOf="@+id/guideline"
-            app:layout_constraintVertical_bias="0.833" />
+            app:layout_constraintVertical_bias="0.243" />
 
         <ImageView
             android:id="@+id/ItemImage"
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="70dp" />
+            app:layout_constraintGuide_begin="55dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
@@ -64,7 +64,7 @@
         <TextView
             android:id="@+id/itemName"
             android:layout_width="215dp"
-            android:layout_height="59dp"
+            android:layout_height="54dp"
             android:ellipsize="end"
             android:maxLines="2"
             android:text="Nombre"
@@ -109,6 +109,26 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/itemEstatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="52dp"
+            android:text="Estatus:"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline4" />
+
+        <TextView
+            android:id="@+id/itemActualPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pagina actual: 0"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toBottomOf="@+id/itemEstatus" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,5 @@
 package com.example.proyectoe7bedu
-
+// Alejandro
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity

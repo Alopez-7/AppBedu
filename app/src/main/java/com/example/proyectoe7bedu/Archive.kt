@@ -11,5 +11,6 @@ data class Archive (
     var favorito:Boolean =false,
     var coleccion:String ="",
     var checked: Boolean =false,
-    var checkedDisabled: Boolean = true
+    var checkedDisabled: Boolean = true,
+    var actualPage:String = "0"
 )

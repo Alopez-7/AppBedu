@@ -1,5 +1,5 @@
 /*
-ketzalli
+ketzalli/Alejandro
 descripcion: activity encargada de visualizar el pdf seleccionado de la biblioteca,
 permite la lectura del documento, hacer zoom, desplazamiento entre paginas, editar propiedades del
 documento como lo es el marcado como favorito, cambiar autor, coleccion y
@@ -19,6 +19,8 @@ import com.github.barteksc.pdfviewer.PDFView
 
 var dialog = CustomDialogFragment()
 var ultimaPag: Int = 0
+var indexArchivo = 0
+var actualPage = 0
 
 class viewDoc : AppCompatActivity() {
 
@@ -32,6 +34,15 @@ class viewDoc : AppCompatActivity() {
 
         var titulo = intent.extras!!.getString("titulo")
         pdf_view = findViewById(R.id.pdf_view)
+
+
+        data.forEach {if(it.titulo == titulo){
+            indexArchivo = data.indexOf(it)
+        }
+        }
+        data[indexArchivo].estatus = "Leyendo"
+
+
         pA = findViewById(R.id.pagAct)
         pT = findViewById(R.id.pagTot)
 
@@ -47,12 +58,19 @@ class viewDoc : AppCompatActivity() {
             .onPageScroll { page, positionOffset -> //lista la pagina actual
                 ultimaPag = page //mandar esto al registro
                 pA.setText("$page")
+                data[indexArchivo].actualPage = "${pA.text.toString()}/${pT.text.toString()}"
             }
             .onPageError { page, t ->
                 Toast.makeText(this@viewDoc, "Error al abrir" + page, Toast.LENGTH_SHORT).show()
                 Log.d("ERROR", "" + t.localizedMessage);
             }
             .load()
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+
     }
 
     //definicion del funcionamiento del menu
@@ -69,24 +87,32 @@ class viewDoc : AppCompatActivity() {
         when (item.itemId) {
             R.id.favorito -> {
                 Toast.makeText(this, "se agrego a favoritos", Toast.LENGTH_SHORT).show()
+                data[indexArchivo].favorito = true
                 return true
             }
             R.id.autor -> {
+                fragmentSelected= 1
                 Toast.makeText(this, "cambiar autor", Toast.LENGTH_SHORT).show()
                 dialog.show(supportFragmentManager, "CustomDialog")
+
+
+
                 return true
             }
             R.id.coleccion -> {
+                fragmentSelected= 2
                 Toast.makeText(this, "cambiar coleccion", Toast.LENGTH_SHORT).show()
                 dialog.show(supportFragmentManager, "CustomDialog")
                 return true
             }
             R.id.estatus -> {
+                fragmentSelected= 3
                 Toast.makeText(this, "cambiar estatus", Toast.LENGTH_SHORT).show()
                 dialog.show(supportFragmentManager, "CustomDialog")
                 return true
             }
             R.id.serie -> {
+                fragmentSelected= 4
                 Toast.makeText(this, "cambiar serie", Toast.LENGTH_SHORT).show()
                 dialog.show(supportFragmentManager, "CustomDialog")
                 return true
